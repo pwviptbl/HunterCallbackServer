@@ -1,0 +1,13 @@
+# Ativar o motor de reescrita
+RewriteEngine On
+
+# --- Roteamento da API ---
+# Se a requisição for para api.php, deixa passar
+RewriteRule ^api\\.php$ - [L]
+
+# --- Roteamento do Ouvinte (Listener) ---
+# Qualquer outra requisição (de qualquer subdomínio)
+# é enviada silenciosamente para o listener.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ listener.php [L]

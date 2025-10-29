@@ -1,0 +1,13 @@
+{
+    "name": "proxyhunter/callback-server",
+    "description": "Servidor de Callback OAST para o ProxyHunter",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "ProxyHunter\\Callback\\": "src/"
+        }
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.5"
+    }
+}
