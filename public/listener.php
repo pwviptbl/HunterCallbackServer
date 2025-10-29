@@ -3,7 +3,7 @@
 // Autoload Composer dependencies
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use ProxyHunter\\Callback\\Logger;
+use ProxyHunter\Callback\Logger;
 
 // The listener should be 100% passive and never fail loudly.
 // It returns a 200 OK immediately to prevent the payload from hanging.
@@ -43,7 +43,7 @@ if (!empty($interactionId)) {
     try {
         $logger = new Logger();
         $logger->logHit($interactionId, $protocol, $sourceIp, $requestData);
-    } catch (\\Exception $e) {
+    } catch (\Exception $e) {
         // Fail silently. We do not want to alert the scanner or the victim machine.
         // In a debug scenario, this could be logged to a local file.
     }

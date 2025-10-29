@@ -1,6 +1,6 @@
 <?php
 
-namespace ProxyHunter\\Callback;
+namespace ProxyHunter\Callback;
 
 use PDO;
 
@@ -34,7 +34,7 @@ class ApiHandler
             }
 
             return $results;
-        } catch (\\PDOException $e) {
+        } catch (\PDOException $e) {
             // In a real app, log this error. For now, return an empty array on failure.
             return [];
         }

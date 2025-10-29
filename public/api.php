@@ -3,8 +3,8 @@
 // Autoload Composer dependencies
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use ProxyHunter\\Callback\\Config;
-use ProxyHunter\\Callback\\ApiHandler;
+use ProxyHunter\Callback\Config;
+use ProxyHunter\Callback\ApiHandler;
 
 // --- Security First: Authentication ---
 $config = Config::getInstance();
@@ -41,7 +41,7 @@ try {
         $response['data'] = $hits;
     }
 
-} catch (\\Exception $e) {
+} catch (\Exception $e) {
     // If something goes wrong internally, return a generic server error.
     http_response_code(500);
     header('Content-Type: application/json');

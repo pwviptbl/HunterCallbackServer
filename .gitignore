@@ -1,0 +1,39 @@
+# Composer / dependencies
+/vendor/
+
+# Environment
+.env
+.env.*
+
+# SQLite / DB files
+/data/*.sqlite
+*.sqlite
+*.db
+
+# Logs and runtime
+*.log
+/logs/
+
+# IDEs and editors
+/.idea/
+.vscode/
+/.phpstorm.meta.php
+
+# System files
+.DS_Store
+Thumbs.db
+
+# PHPUnit and test artifacts
+.phpunit.result.cache
+/coverage/
+
+# Build / dist
+/build/
+/dist/
+
+# Node
+node_modules/
+
+# Temporary
+*-~
+*.swp

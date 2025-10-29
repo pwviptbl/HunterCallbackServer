@@ -1,6 +1,6 @@
 <?php
 
-namespace ProxyHunter\\Callback;
+namespace ProxyHunter\Callback;
 
 use PDO;
 
@@ -26,7 +26,7 @@ class Logger
                 ':request_data' => $requestData,
             ]);
             return true;
-        } catch (\\PDOException $e) {
+        } catch (\PDOException $e) {
             // In a real-world scenario, you might want to log this error to a file
             // instead of letting the script die silently.
             // For this project, we fail silently to avoid alerting the source.

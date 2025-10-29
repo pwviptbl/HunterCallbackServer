@@ -59,6 +59,37 @@ O HunterCallbackServer é um serviço de backend independente, escrito em PHP e 
     -   Set the `DocumentRoot` (or web root) of your domain to the `/public` directory of this project. This is crucial for security, as it prevents direct access to the `src`, `vendor`, and `.env` files.
     -   Ensure your Wildcard DNS is correctly pointing to the server.
 
+## Alternar entre SQLite e MySQL
+
+O projeto suporta tanto SQLite (útil para testes locais) quanto MySQL/MariaDB (produção). Basta alterar a variável `DB_DRIVER` no seu `.env` para `sqlite` ou `mysql`.
+
+- Para testes rápidos locais (SQLite):
+    - Defina `DB_DRIVER=sqlite` e `DB_DATABASE=./data/hunter_test.sqlite` no seu `.env` (ou copie de `.env.example`).
+    - O arquivo `data/hunter_test.sqlite` será criado com permissões apropriadas para testes.
+
+- Para usar MySQL/MariaDB:
+    - Defina `DB_DRIVER=mysql` no `.env` e preencha as variáveis abaixo (exemplo):
+
+```
+DB_DRIVER=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=hunterdb
+DB_USERNAME=hunteruser
+DB_PASSWORD=your_db_password_here
+API_KEY=your_secret_api_key_here
+```
+
+    - Importe o schema SQL para criar a tabela `interactions`:
+
+```
+mysql -u hunteruser -p hunterdb < schema.sql
+```
+
+    - Depois ajuste `API_KEY` e reinicie seu servidor.
+
+Observação: este repositório inclui um arquivo `.env.example` com exemplos para SQLite e MySQL para facilitar a troca.
+
 ## Usage
 
 ### Face A: The Listener (`listener.php`)
