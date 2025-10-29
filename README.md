@@ -147,3 +147,19 @@ The API is the private endpoint used by ProxyHunter to check for callbacks.
 -   **API Key:** Use a long, random, and unique string for your `API_KEY`.
 -   **Timing Attacks:** The API key comparison uses `hash_equals()` to protect against timing-based attacks.
 -   **HTTPS:** It is highly recommended to run the server over HTTPS (using a Let's Encrypt certificate for your wildcard domain) to protect the API key in transit.
+
+## Iniciando o Servidor de Desenvolvimento
+
+Para testes locais, use o servidor embutido do PHP:
+
+```bash
+php -S localhost:8000 -t public/
+
+curl -X GET "http://localhost:8000/listener.php" \
+  -H "Host: pxh-test-123.callback.localhost" \
+  -H "User-Agent: Test-Payload/1.0" \
+  -d "param=test&data=example"
+
+curl -X GET "http://localhost:8000/api.php?id=pxh-test-123" \
+  -H "X-ProxyHunter-Key: your_secret_key"
+```
